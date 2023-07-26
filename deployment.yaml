@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: gbros
+spec:
+  selector:
+    matchLabels:
+      app: gbros
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: gbros
+    spec:
+      containers:
+        - name: gbros
+          image: gbros.0.1:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
+          ports:
+            - containerPort: 8080 # The port that the container is running on in the clusterz
