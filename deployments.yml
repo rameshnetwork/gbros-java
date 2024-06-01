@@ -2,20 +2,20 @@ appVersion: apps/v1
 kind: Deployment
 metadata:
   name: gbros-java
-  spec:
-    selector:
-      matchLabels:
+spec:
+  selector:
+    matchLabels:
+      app: gbros-java
+  replicas: 1
+  template:
+    metadata:
+      labels:
         app: gbros-java
-    replicas: 1
-    template:
-      metadata:
-        labels:
-          app: gbros-java
-      spec:
-        containers:
-          - name: gbros-java
-            image: gbros-java:latest
-            imagePullPolicy: Never
-            ports:
-              - containerPort: 8080
+    spec:
+      containers:
+        - name: gbros-java
+          image: gbros-java:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
 
