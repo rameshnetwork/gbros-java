@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy the jar file into our app
-COPY ./target/gbros-java.jar /app
+COPY ./target/*.jar /app
 
 # Exposing port 8080
 EXPOSE 8080
